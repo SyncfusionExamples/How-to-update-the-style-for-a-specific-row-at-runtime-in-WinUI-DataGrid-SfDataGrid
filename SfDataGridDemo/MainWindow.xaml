@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="SfDataGridDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SfDataGridDemo"
+    xmlns:dataGrid="using:Syncfusion.UI.Xaml.DataGrid"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="SfDataGridDemo">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+   
+
+    <Grid Padding="20">
+        <Grid.Resources>
+            <local:PmsSelectorClass x:Key="styleSelector"/>
+        </Grid.Resources>
+        <dataGrid:SfDataGrid
+            x:Name="dataGrid"
+            AutoGenerateColumns="False"
+            AllowEditing="True"
+            AllowSorting="False"
+            SelectionMode="Single"
+            NavigationMode="Cell"
+            HeaderRowHeight="36"
+            CellStyleSelector="{StaticResource styleSelector}">
+
+            <dataGrid:SfDataGrid.Columns>
+                <dataGrid:GridCheckBoxColumn
+                    MappingName="ThisComp"
+                    HeaderText="Use"
+                    Width="80" />
+
+                <dataGrid:GridTextColumn
+                    MappingName="InkColor"
+                    HeaderText="Ink Color"
+                    Width="240" />
+
+                <dataGrid:GridTextColumn
+                    MappingName="PMSNumber"
+                    HeaderText="PMS #"
+                    Width="120" />
+
+                <dataGrid:GridTextColumn
+                    MappingName="ColorPreview"
+                    HeaderText="Color Preview"
+                    Width="100"
+                    IsReadOnly="True"/>
+            </dataGrid:SfDataGrid.Columns>
+
+        </dataGrid:SfDataGrid>
+    </Grid>
+
+</Window>
